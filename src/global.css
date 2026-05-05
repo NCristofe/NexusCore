@@ -1,0 +1,69 @@
+/* Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #020617; 
+  color: #fff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  text-align: center;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b82f6; 
+  letter-spacing: 0.08em;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+:root {
+  --primary: #3b82f6;
+  --bg-dark: #020617;
+  --card: #0f172a;
+  --text-muted: #94a3b8;
+}
