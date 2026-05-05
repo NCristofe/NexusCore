@@ -1,16 +1,120 @@
-# React + Vite
+# 🚀 NexusCore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page moderna focada em **design de interfaces e experiência do usuário**, construída com React + Vite.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Sobre o projeto
 
-## React Compiler
+O **NexusCore** é uma landing page inspirada em produtos SaaS modernos, com foco em:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* UI limpa e profissional
+* Experiência do usuário fluida
+* Performance e responsividade
+* Estrutura escalável
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 Tecnologias utilizadas
+
+* React
+* Vite
+* JavaScript (ES6+)
+* CSS / Tailwind (ou styled-components)
+
+---
+
+## 🎨 Funcionalidades
+
+* ✅ Header responsivo com menu mobile
+* ✅ Hero section com call-to-actions
+* ✅ Seção de especialidades com cards interativos
+* ✅ Carrossel mobile (touch)
+* ✅ Seção de projetos
+* ✅ Call To Action (CTA)
+* ✅ Footer com redes sociais
+* ✅ Animações on-scroll (Reveal)
+
+---
+
+## 📱 Responsividade
+
+O projeto foi desenvolvido com foco em:
+
+* Desktop
+* Tablet
+* Mobile
+
+---
+
+## 📂 Estrutura de pastas
+
+```
+src/
+ ├── assets/
+ ├── components/
+ ├── pages/
+ ├── global.css
+ └── main.jsx
+```
+
+---
+
+## 🚀 Como rodar o projeto
+
+```bash
+# clonar o repositório
+git clone https://github.com/NCristofe/NexusCore.git
+
+# entrar na pasta
+cd NexusCore
+
+# instalar dependências
+npm install
+
+# rodar o projeto
+npm run dev
+```
+
+---
+
+## 🌐 Deploy
+
+Você pode visualizar o projeto online (em breve) ou fazer deploy facilmente com:
+
+* Vercel
+* Netlify
+
+---
+
+## 📈 Objetivo
+
+Este projeto foi desenvolvido para:
+
+* Praticar desenvolvimento front-end moderno
+* Construir um portfólio profissional
+* Simular um produto real de mercado
+
+---
+
+## 🧩 Melhorias futuras
+
+* 🔹 Integração com API
+* 🔹 Página de projetos completa
+* 🔹 Formulário de contato funcional
+* 🔹 SEO avançado
+* 🔹 Dark/Light mode
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Natanael Cristofe**
+
+* GitHub: https://github.com/NCristofe
