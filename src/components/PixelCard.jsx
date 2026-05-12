@@ -4,7 +4,7 @@ import "./PixelCard.css";
 
 /
 try {
-  // import dinamicamente para não quebrar se não estiver instalado
+ 
   // eslint-disable-next-line no-eval
   gsap = eval("require('gsap')"); // uso de eval/require para evitar erro em bundlers que checam estático
 } catch (e) {
