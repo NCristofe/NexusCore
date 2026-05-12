@@ -1,27 +1,23 @@
+// src/components/PixelCard.jsx
+import { useRef } from "react";
+import "./PixelCard.css";
 
-import { useEffect, useRef } from 'react';
-import './PixelCard.css';
-
-
-
-function PixelCard({ variant = 'default', gap, speed, colors, noFocus, className = '', children }) {
+export default function PixelCard({
+  variant = "default",
+  noFocus = false,
+  className = "",
+  children,
+}) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
-  const pixelsRef = useRef([]);
-  const animationRef = useRef(null);
-  const timePreviousRef = useRef(performance.now());
-  const reducedMotion = useRef(window.matchMedia('(prefers-reduced-motion: reduce)').matches).current;
 
-  
+  // 👇 finalNoFocus declarado corretamente
+  const finalNoFocus = noFocus ?? false;
 
   return (
     <div
       ref={containerRef}
-      className={`pixel-card ${className}`}
-      onMouseEnter={() => handleAnimation('appear')}
-      onMouseLeave={() => handleAnimation('disappear')}
-      onFocus={finalNoFocus ? undefined : onFocus}
-      onBlur={finalNoFocus ? undefined : onBlur}
+      className={`pixel-card ${variant} ${className}`}
       tabIndex={finalNoFocus ? -1 : 0}
     >
       <canvas className="pixel-canvas" ref={canvasRef} />
@@ -29,6 +25,3 @@ function PixelCard({ variant = 'default', gap, speed, colors, noFocus, className
     </div>
   );
 }
-
-
-export default PixelCard;
