@@ -30,7 +30,7 @@ export default function PixelCard({
     if (gsap && gsap.to) {
       gsap.to(el, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
     } else {
-      // fallback CSS: garante que o elemento apareça
+  
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
     }
