@@ -2,8 +2,7 @@
 import { useEffect, useRef } from "react";
 import "./PixelCard.css";
 
-// Se quiser usar GSAP, já deve estar instalado: npm install gsap
-let gsap;
+/
 try {
   // import dinamicamente para não quebrar se não estiver instalado
   // eslint-disable-next-line no-eval
