@@ -43,7 +43,6 @@ export default function PixelCard({
     };
   }, []);
 
-  // handlers locais simples para hover/focus
   function handleMouseEnter() {
     const el = containerRef.current;
     if (!el) return;
@@ -65,7 +64,7 @@ export default function PixelCard({
   }
 
   function handleFocus() {
-    // comportamento simples no foco (acessibilidade)
+  
     const el = containerRef.current;
     if (!el) return;
     el.classList.add("pixel-card-focus");
