@@ -1,4 +1,4 @@
-// src/components/PixelCard.jsx
+
 import { useRef } from "react";
 import "./PixelCard.css";
 
@@ -11,7 +11,6 @@ export default function PixelCard({
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // 👇 finalNoFocus declarado corretamente
   const finalNoFocus = noFocus ?? false;
 
   return (
