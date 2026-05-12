@@ -26,7 +26,7 @@ export default function PixelCard({
     const el = containerRef.current;
     if (!el) return;
 
-    // exemplo simples: animação de entrada do conteúdo com GSAP se disponível
+    
     if (gsap && gsap.to) {
       gsap.to(el, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
     } else {
