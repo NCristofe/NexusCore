@@ -1,8 +1,4 @@
-// src/components/Footer.jsx
 import styled from "styled-components";
-import IconDribbble from "../assets/icons/dribbble.svg";
-import IconLinkedIn from "../assets/icons/linkedin.svg";
-import IconTwitter from "../assets/icons/twitter.svg";
 
 const FooterRoot = styled.footer`
   width: 100%;
@@ -56,7 +52,7 @@ const FooterRoot = styled.footer`
     border-radius: 8px;
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.03);
-    transition: transform 160ms var(--timing-ease, cubic-bezier(.2,.9,.2,1)), box-shadow 160ms;
+    transition: transform 160ms cubic-bezier(.2,.9,.2,1), box-shadow 160ms;
     color: var(--text, #e6eef8);
     text-decoration: none;
   }
@@ -104,6 +100,38 @@ const FooterRoot = styled.footer`
   }
 `;
 
+/* Inline SVG icons to avoid missing file imports */
+function IconDribbble() {
+  return (
+    <svg className="social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M4.5 15.5c3-1 6-1 9 0" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d="M7 6.5c2 2.5 5 4 9 4.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d="M16 4.5c-1.5 2.5-3 5.5-3.5 9" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconLinkedIn() {
+  return (
+    <svg className="social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M7 10v6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <circle cx="7" cy="7.5" r="1" fill="currentColor" />
+      <path d="M11 10v6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M11 10c1.5 0 3-0.5 3 1.5v4.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconTwitter() {
+  return (
+    <svg className="social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M20 7.5c-.6.3-1.2.5-1.9.6.7-.4 1.2-1 1.4-1.8-.7.4-1.5.7-2.3.9C16.6 6 15.6 5.5 14.5 5.5c-1.9 0-3.4 1.6-3.4 3.5 0 .3 0 .6.1.9C7.7 9.7 5 8.1 3.2 6c-.4.7-.6 1.5-.6 2.4 0 1.6.8 3 2 3.8-.6 0-1.2-.2-1.7-.5v.1c0 1.9 1.3 3.5 3 3.9-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3 2.3-1.1.9-2.5 1.4-4 1.4-.3 0-.6 0-.9-.1 1.4.9 3 1.4 4.7 1.4 5.6 0 8.7-4.7 8.7-8.8v-.4c.6-.4 1.1-1 1.5-1.6-.6.3-1.2.5-1.9.6z" stroke="currentColor" strokeWidth="0.6" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <FooterRoot role="contentinfo" aria-label="Footer">
@@ -122,7 +150,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="Dribbble — opens in a new tab"
             >
-              <img src={IconDribbble} alt="" className="social-icon" aria-hidden="true" />
+              <IconDribbble />
             </a>
           </li>
           <li>
@@ -133,7 +161,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="LinkedIn — opens in a new tab"
             >
-              <img src={IconLinkedIn} alt="" className="social-icon" aria-hidden="true" />
+              <IconLinkedIn />
             </a>
           </li>
           <li>
@@ -144,7 +172,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="Twitter — opens in a new tab"
             >
-              <img src={IconTwitter} alt="" className="social-icon" aria-hidden="true" />
+              <IconTwitter />
             </a>
           </li>
         </ul>
