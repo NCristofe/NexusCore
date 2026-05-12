@@ -1,15 +1,6 @@
-
+// src/components/PixelCard.jsx
 import { useEffect, useRef } from "react";
 import "./PixelCard.css";
-
-/
-try {
- 
-  
-  gsap = eval("require('gsap')"); 
-} catch (e) {
-  gsap = null;
-}
 
 export default function PixelCard({
   variant = "default",
@@ -19,26 +10,38 @@ export default function PixelCard({
 }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
-
   const finalNoFocus = noFocus ?? false;
+  const gsapRef = useRef(null);
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+    let mounted = true;
 
-    
-    if (gsap && gsap.to) {
-      gsap.to(el, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
-    } else {
-  
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }
-
+    import("gsap")
+      .then((mod) => {
+        if (!mounted) return;
+        gsapRef.current = mod.default || mod;
+        const el = containerRef.current;
+        if (el && gsapRef.current && gsapRef.current.to) {
+          gsapRef.current.set(el, { opacity: 0, y: 8 });
+          gsapRef.current.to(el, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" });
+        } else if (el) {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }
+      })
+      .catch(() => {
+        const el = containerRef.current;
+        if (el) {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }
+      });
 
     return () => {
-      if (gsap && gsap.killTweensOf) {
-        gsap.killTweensOf(el);
+      mounted = false;
+      if (gsapRef.current && gsapRef.current.killTweensOf) {
+        const el = containerRef.current;
+        if (el) gsapRef.current.killTweensOf(el);
       }
     };
   }, []);
@@ -46,8 +49,8 @@ export default function PixelCard({
   function handleMouseEnter() {
     const el = containerRef.current;
     if (!el) return;
-    if (gsap && gsap.to) {
-      gsap.to(el, { scale: 1.03, duration: 0.25, ease: "power1.out" });
+    if (gsapRef.current && gsapRef.current.to) {
+      gsapRef.current.to(el, { scale: 1.03, duration: 0.22, ease: "power1.out" });
     } else {
       el.classList.add("pixel-card-hover");
     }
@@ -56,15 +59,14 @@ export default function PixelCard({
   function handleMouseLeave() {
     const el = containerRef.current;
     if (!el) return;
-    if (gsap && gsap.to) {
-      gsap.to(el, { scale: 1, duration: 0.25, ease: "power1.out" });
+    if (gsapRef.current && gsapRef.current.to) {
+      gsapRef.current.to(el, { scale: 1, duration: 0.22, ease: "power1.out" });
     } else {
       el.classList.remove("pixel-card-hover");
     }
   }
 
   function handleFocus() {
-  
     const el = containerRef.current;
     if (!el) return;
     el.classList.add("pixel-card-focus");
