@@ -1,8 +1,8 @@
-// PixelCard.jsx
+
 import { useEffect, useRef } from 'react';
 import './PixelCard.css';
 
-// ... toda a lógica do Pixel e do componente que você já tem ...
+
 
 function PixelCard({ variant = 'default', gap, speed, colors, noFocus, className = '', children }) {
   const containerRef = useRef(null);
@@ -12,7 +12,7 @@ function PixelCard({ variant = 'default', gap, speed, colors, noFocus, className
   const timePreviousRef = useRef(performance.now());
   const reducedMotion = useRef(window.matchMedia('(prefers-reduced-motion: reduce)').matches).current;
 
-  // ... resto do código do componente ...
+  
 
   return (
     <div
@@ -30,5 +30,5 @@ function PixelCard({ variant = 'default', gap, speed, colors, noFocus, className
   );
 }
 
-// ✅ Export default no final
+
 export default PixelCard;
