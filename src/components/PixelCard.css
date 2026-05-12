@@ -7,8 +7,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+  transform: translateY(8px) scale(1);
+  opacity: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
+/* hover fallback */
+.pixel-card-hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* focus visual */
+.pixel-card-focus {
+  outline: 3px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+/* variantes */
 .pixel-card.default {
   background-color: #222;
   border: 2px solid #fff;
@@ -24,10 +41,21 @@
   border: 2px solid #ff66cc;
 }
 
+/* canvas ocupa todo o card */
 .pixel-canvas {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+}
+
+/* conteúdo por cima do canvas */
+.pixel-card-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 1rem;
 }
