@@ -35,7 +35,7 @@ export default function PixelCard({
       el.style.transform = "translateY(0)";
     }
 
-    // cleanup (se necessário)
+
     return () => {
       if (gsap && gsap.killTweensOf) {
         gsap.killTweensOf(el);
