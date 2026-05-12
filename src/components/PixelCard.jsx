@@ -6,7 +6,7 @@ import "./PixelCard.css";
 try {
  
   
-  gsap = eval("require('gsap')"); // uso de eval/require para evitar erro em bundlers que checam estático
+  gsap = eval("require('gsap')"); 
 } catch (e) {
   gsap = null;
 }
