@@ -1,12 +1,27 @@
-
 .pixel-card {
   position: relative;
   width: 300px;
   height: 200px;
-  border: 2px solid #fff;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pixel-card.default {
+  background-color: #222;
+  border: 2px solid #fff;
+}
+
+.pixel-card.blue {
+  background-color: #003366;
+  border: 2px solid #3399ff;
+}
+
+.pixel-card.pink {
+  background-color: #660033;
+  border: 2px solid #ff66cc;
 }
 
 .pixel-canvas {
