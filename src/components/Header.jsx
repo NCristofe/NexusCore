@@ -1,152 +1,228 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import logo from '../assets/icons/logo.svg';
-import menuAside from '../assets/icons/menu-aside-icon.svg';
+import { useState } from "react";
+import styled from "styled-components";
+import logo from "../assets/icons/logo.svg";
+import menuAside from "../assets/icons/menu-aside-icon.svg";
+
+const NAV_ITEMS = [
+  { label: "Home", href: "#hero" },
+  { label: "Serviços", href: "#specialities" },
+  { label: "Projetos", href: "#projects" },
+  { label: "Contato", href: "#contact" },
+];
 
 const StyledHeader = styled.header`
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  height: 86px;
+  border-bottom: 1px solid rgba(220, 230, 242, 0.86);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+
+  .header-inner {
+    width: 100%;
+    max-width: var(--container-max);
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0px 48px;
-    width: 100%;
-    height: 107px;
-    font-size: 15px;
-    font-weight: 500; 
-    color: var(--neutral-200);
-    background-color: var(--header-background);
-    z-index: 1000;
+    gap: 28px;
+  }
 
-    img {
-        width: 160px;
-        height: 40px;
+  .logo-link {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  .logo-link img {
+    width: 168px;
+    height: auto;
+  }
+
+  .navigation ul,
+  .mobile-panel ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--text-soft);
+    font-size: 0.94rem;
+    font-weight: 650;
+    transition: background 180ms var(--ease), color 180ms var(--ease);
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--text);
+    background: var(--bg-soft);
+  }
+
+  .start-button {
+    margin-left: 6px;
+    color: #ffffff;
+    background: var(--primary);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
+  }
+
+  .start-button:hover,
+  .start-button:focus-visible {
+    color: #ffffff;
+    background: var(--primary-dark);
+  }
+
+  .menu-button {
+    display: none;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .menu-button img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-panel {
+    display: none;
+  }
+
+  @media (max-width: 780px) {
+    height: 76px;
+
+    .header-inner {
+      padding: 0 18px;
     }
 
-    ul {
-        list-style: none; 
-        padding: 0;
-        margin: 0;
+    .logo-link img {
+      width: 150px;
     }
 
-    .navigation ul {
-        display: flex;
-        align-items: center;
-        gap: 32px;    
+    .navigation {
+      display: none;
     }
 
-    .common-link { color: var(--neutral-200); text-decoration: none; }
-    .common-link:hover { color: var(--hover-neutral-200); }
-
-    .portfolio-link { color: var(--tertiary-color); text-decoration: none; }   
-    .portfolio-link:hover { color: var(--blue-hover); }
-
-    .start-button {
-        background-color: var(--tertiary-color);
-        color: var(--neutral-100);
-        width: 85px;
-        height: 43px;
-        border-radius: 6px;
-        display: inline-block;
-        text-align: center;
-        line-height: 43px;
-        text-decoration: none;
+    .menu-button {
+      display: grid;
     }
 
-    .aside-menu { display: none; }
-
-    @media (max-width: 768px) {
-        padding: 0 20px;
-
-        .navigation { display: none; }
-
-        .aside-menu {
-            display: flex;
-            width: 43px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
+    .mobile-panel {
+      position: fixed;
+      top: 76px;
+      left: 18px;
+      right: 18px;
+      display: block;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-14px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 180ms var(--ease), opacity 180ms var(--ease);
     }
 
-    .aside-container {
-        display: flex;
-        position: fixed;
-        top: 107px;
-        right: 0;
-        left: 0;
-
-        width: 100%;
-        height: calc(100vh - 107px);
-        background-color: var(--header-background);
-        padding: 48px 40px;
-        font-size: 24px;
-
-        transform: translateX(100%);
-        transition: transform 0.35s ease, visibility 0s 0.35s;
-        visibility: hidden;
+    .mobile-panel.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .aside-container.show {
-        transform: translateX(0);
-        transition: transform 0.35s ease, visibility 0s 0s;
-        visibility: visible;
+    .mobile-panel ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
     }
 
-    .aside-container ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px;
-        width: 100%;
+    .mobile-panel .nav-link {
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 12px;
     }
 
-    .aside-container .start-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 160px;
-        height: 48px;
-        line-height: normal;
-        font-size: 24px;
+    .mobile-panel .start-button {
+      justify-content: center;
+      margin: 8px 0 0;
     }
+  }
 `;
 
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    function toggleMenu() {
-        setIsMenuOpen(!isMenuOpen);
-    }
+  const closeMenu = () => setIsMenuOpen(false);
 
-    return (
-        <StyledHeader>
-            <img src={logo} alt="Logo da empresa" />
+  return (
+    <StyledHeader>
+      <div className="header-inner">
+        <a className="logo-link" href="#hero" aria-label="NexusCore - inicio" onClick={closeMenu}>
+          <img src={logo} alt="NexusCore" />
+        </a>
 
-            <nav className='navigation'>
-                <ul>
-                    <li><a href="#" className='common-link'>Home</a></li>
-                    <li><a href="#" className='common-link'>Contato</a></li>
-                    <li><a href="#" className='portfolio-link'>Portfolio</a></li>
-                    <li><a href="#" className='start-button'>Começar</a></li>
-                </ul>
-            </nav>
+        <nav className="navigation" aria-label="Navegação principal">
+          <ul>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.href}>
+                <a className="nav-link" href={item.href}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a className="nav-link start-button" href="#contact">
+                Começar
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-            <button className='aside-menu' onClick={toggleMenu}>
-                <img src={menuAside} alt="Menu" />
-            </button>
+        <button
+          className="menu-button"
+          type="button"
+          onClick={() => setIsMenuOpen((value) => !value)}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          aria-label="Abrir menu"
+        >
+          <img src={menuAside} alt="" aria-hidden="true" />
+        </button>
+      </div>
 
-            <div className={`aside-container ${isMenuOpen ? 'show' : ''}`}>
-                <nav>
-                  <ul>
-                    <li><a href="#" className='common-link'>Home</a></li>
-                    <li><a href="#" className='common-link'>Contato</a></li>
-                    <li><a href="#" className='portfolio-link'>Portfolio</a></li>
-                        <li><a href="#" className='start-button'>Começar</a></li>
-                  </ul>
-                </nav>
-            </div>
-        </StyledHeader>         
-    );
+      <nav
+        id="mobile-navigation"
+        className={`mobile-panel ${isMenuOpen ? "show" : ""}`}
+        aria-label="Navegação mobile"
+      >
+        <ul>
+          {NAV_ITEMS.map((item) => (
+            <li key={item.href}>
+              <a className="nav-link" href={item.href} onClick={closeMenu}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a className="nav-link start-button" href="#contact" onClick={closeMenu}>
+              Começar
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </StyledHeader>
+  );
 }

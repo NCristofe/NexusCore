@@ -1,39 +1,95 @@
+import styled from "styled-components";
 import Arrow from "../assets/icons/arrow-icon.svg";
+
+const Section = styled.section`
+  width: 100%;
+  padding: 96px 24px;
+
+  .cta-panel {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    align-items: center;
+    padding: 42px;
+    border: 1px solid rgba(191, 219, 254, 0.9);
+    border-radius: 28px;
+    background:
+      linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(255, 255, 255, 0.96)),
+      #ffffff;
+    box-shadow: var(--shadow-md);
+  }
+
+  h2 {
+    max-width: 760px;
+    font-size: clamp(28px, 4vw, 46px);
+  }
+
+  p {
+    max-width: 640px;
+    margin-top: 14px;
+    line-height: 1.75;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 20px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: var(--primary);
+    font-weight: 800;
+    box-shadow: 0 16px 34px rgba(37, 99, 235, 0.24);
+    transition: transform 180ms var(--ease), background 180ms var(--ease);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    background: var(--primary-dark);
+  }
+
+  .cta-button img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+  }
+
+  @media (max-width: 760px) {
+    padding: 72px 18px;
+
+    .cta-panel {
+      grid-template-columns: 1fr;
+      padding: 28px;
+    }
+
+    .cta-button {
+      width: 100%;
+    }
+  }
+`;
 
 export default function CallToAction() {
   return (
-    <section
-      className="cta-section relative flex flex-col items-center justify-center text-center gap-8 px-6 py-24 bg-gradient-to-b from-gray-950 to-black overflow-hidden"
-      aria-labelledby="cta-heading"
-      role="region"
-    >
-      {/* Subtle ambient glow */}
-      <div
-        className="absolute w-[500px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full -top-24"
-        aria-hidden="true"
-      />
+    <Section id="contact" aria-labelledby="cta-heading">
+      <div className="cta-panel">
+        <div>
+          <h2 id="cta-heading">Vamos transformar sua ideia em uma interface clara</h2>
+          <p>
+            Conte o que você quer melhorar. A gente organiza o problema, desenha o fluxo
+            e entrega uma experiência moderna para o usuário final.
+          </p>
+        </div>
 
-      <h2 id="cta-heading" className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl">
-        Preparado para elevar a experiência do seu produto
-      </h2>
-
-      <p className="text-gray-400 text-lg max-w-xl">
-        Converse com nossa equipe para alinhar estratégia, usabilidade e estética, e levar sua interface ao próximo nível.
-      </p>
-
-      <a
-        href="#contact"
-        className="cta-button group inline-flex items-center justify-center gap-3 px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all duration-300 rounded-lg text-white font-medium shadow-lg hover:shadow-blue-500/30"
-        aria-label="Iniciar projeto — abrir formulário de contato"
-      >
-        Iniciar projeto
-        <img
-          src={Arrow}
-          alt="Ícone de seta indicando ação"
-          className="w-4 transition-transform duration-300 group-hover:translate-x-1"
-          aria-hidden="true"
-        />
-      </a>
-    </section>
+        <a className="cta-button" href="mailto:contato@nexuscore.com">
+          Iniciar conversa
+          <img src={Arrow} alt="" aria-hidden="true" />
+        </a>
+      </div>
+    </Section>
   );
 }

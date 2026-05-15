@@ -2,14 +2,14 @@
   
   <!-- Ícone -->
   <g>
-    <rect x="0" y="10" width="40" height="40" rx="10" fill="#3B82F6"></rect>
+    <rect x="0" y="10" width="40" height="40" rx="10" fill="#2563EB"></rect>
     
     <!-- N estilizado -->
     <path d="M10 38V22L30 38V22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
   </g>
 
   <!-- Texto -->
-  <text x="55" y="38" fill="white" font-family="Inter, sans-serif" font-size="20" font-weight="600">
+  <text x="55" y="38" fill="#172033" font-family="Inter, sans-serif" font-size="20" font-weight="700">
     NexusCore
   </text>
 

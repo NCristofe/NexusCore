@@ -10,7 +10,7 @@ const PROJECTS = [
     eyebrow: "SaaS financeiro",
     title: "Financial Platform",
     description:
-      "Dashboard executivo para acompanhar receita, risco e previsoes com leitura rapida para times de operacao.",
+      "Dashboard executivo para acompanhar receita, risco e previsões com uma leitura mais rápida para times de operação.",
     tags: ["UI/UX", "Dashboard", "Design System"],
     metric: "38%",
     metricLabel: "menos tempo em tarefas recorrentes",
@@ -18,7 +18,7 @@ const PROJECTS = [
   {
     id: "commerce-app",
     image: secondProjectImage,
-    alt: "Interface mobile de um aplicativo de comercio digital",
+    alt: "Interface mobile de um aplicativo de comércio digital",
     eyebrow: "Produto mobile",
     title: "Commerce App",
     description:
@@ -31,194 +31,124 @@ const PROJECTS = [
     id: "ops-suite",
     image: firstProjectImage,
     alt: "Visao de cards e indicadores de uma suite operacional",
-    eyebrow: "Operacoes B2B",
+    eyebrow: "Operações B2B",
     title: "Operations Suite",
     description:
-      "Central de controle para priorizar demandas, comparar indicadores e transformar dados dispersos em acao.",
+      "Central de controle para priorizar demandas, comparar indicadores e transformar dados dispersos em ação.",
     tags: ["Web App", "Data Viz", "Workflow"],
     metric: "3x",
-    metricLabel: "mais clareza na priorizacao",
+    metricLabel: "mais clareza na priorização",
   },
 ];
 
 const Section = styled.section`
   width: 100%;
-  padding: 104px 24px;
-  box-sizing: border-box;
-`;
+  padding: 96px 24px;
 
-const Container = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  .section-container {
+    display: grid;
+    gap: 36px;
+  }
 `;
 
 const Header = styled.div`
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.58fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+  gap: 28px;
   align-items: end;
-  margin-bottom: 40px;
 
   h4 {
-    margin: 0 0 10px;
-    color: var(--primary, #3b82f6);
+    margin-bottom: 10px;
+    color: var(--primary);
     font-size: 0.82rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
   h2 {
-    max-width: 760px;
-    margin: 0;
-    text-align: left;
     font-size: clamp(30px, 4vw, 48px);
-    line-height: 1.04;
   }
 
   p {
-    margin: 0;
-    color: var(--muted, #94a3b8);
-    font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   @media (max-width: 820px) {
     grid-template-columns: 1fr;
-    gap: 18px;
-    margin-bottom: 28px;
-
-    h2 {
-      text-align: center;
-    }
-
-    p,
-    h4 {
-      text-align: center;
-    }
   }
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 980px) {
     grid-template-columns: 1fr;
   }
 `;
 
 const Card = styled.article`
-  position: relative;
-  min-height: ${({ $featured }) => ($featured ? "520px" : "250px")};
-  grid-column: ${({ $featured }) => ($featured ? "span 7" : "span 5")};
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  background: #080d16;
-  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms var(--ease), box-shadow 180ms var(--ease);
 
-  &:nth-child(3) {
-    grid-column: 8 / span 5;
-  }
-
-  &:focus-within,
   &:hover {
-    border-color: rgba(96, 165, 250, 0.45);
-  }
-
-  @media (max-width: 900px) {
-    grid-column: 1;
-    min-height: 420px;
-
-    &:nth-child(3) {
-      grid-column: 1;
-    }
-  }
-
-  @media (max-width: 560px) {
-    min-height: 430px;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 `;
 
-const Image = styled.img`
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.74;
-  transform: scale(1.01);
-  transition: transform 260ms ease, opacity 260ms ease;
+const ImageWrap = styled.div`
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-soft);
 
-  ${Card}:hover & {
-    opacity: 0.88;
-    transform: scale(1.04);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 220ms var(--ease);
   }
-`;
 
-const Overlay = styled.div`
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.9) 72%),
-    linear-gradient(90deg, rgba(2, 6, 23, 0.82), rgba(2, 6, 23, 0.22));
+  ${Card}:hover & img {
+    transform: scale(1.035);
+  }
+
+  span {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: var(--primary-dark);
+    background: rgba(255, 255, 255, 0.88);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
 `;
 
 const Content = styled.div`
-  position: relative;
-  z-index: 1;
-  min-height: inherit;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 18px;
-  padding: ${({ $featured }) => ($featured ? "36px" : "28px")};
-
-  @media (max-width: 560px) {
-    padding: 24px;
-  }
-`;
-
-const Eyebrow = styled.span`
-  width: fit-content;
-  color: #bfdbfe;
-  border: 1px solid rgba(191, 219, 254, 0.28);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(15, 23, 42, 0.72);
-`;
-
-const Body = styled.div`
-  display: grid;
-  gap: 10px;
+  padding: 24px;
 
   h3 {
-    margin: 0;
-    font-size: ${({ $featured }) => ($featured ? "clamp(28px, 4vw, 44px)" : "1.45rem")};
-    line-height: 1.05;
+    margin-bottom: 10px;
+    font-size: 1.35rem;
   }
 
   p {
-    max-width: 580px;
-    margin: 0;
-    color: rgba(230, 238, 248, 0.84);
-    font-size: ${({ $featured }) => ($featured ? "1rem" : "0.94rem")};
-    line-height: 1.65;
+    line-height: 1.68;
   }
-`;
-
-const Footer = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: end;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-top: 6px;
 `;
 
 const Tags = styled.ul`
@@ -228,85 +158,80 @@ const Tags = styled.ul`
 `;
 
 const Tag = styled.li`
-  color: rgba(230, 238, 248, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 9px;
+  border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 6px 10px;
+  color: var(--text-soft);
+  background: var(--surface-strong);
   font-size: 0.78rem;
-  background: rgba(2, 6, 23, 0.56);
+  font-weight: 650;
 `;
 
 const Metric = styled.div`
-  min-width: 120px;
-  text-align: right;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
 
   strong {
-    display: block;
-    color: #ffffff;
-    font-size: 1.45rem;
+    color: var(--primary);
+    font-size: 1.7rem;
     line-height: 1;
   }
 
   span {
-    display: block;
-    margin-top: 6px;
-    color: var(--muted, #94a3b8);
-    font-size: 0.78rem;
-    line-height: 1.3;
-  }
-
-  @media (max-width: 520px) {
-    width: 100%;
-    text-align: left;
+    max-width: 190px;
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.35;
+    text-align: right;
   }
 `;
 
 export default function Projects() {
   return (
     <Section id="projects" aria-labelledby="projects-heading">
-      <Container>
+      <div className="section-container">
         <Header>
           <div>
             <h4>Portfolio</h4>
-            <h2 id="projects-heading">Meus Projetos</h2>
+            <h2 id="projects-heading">Projetos com estrutura, contexto e resultado</h2>
           </div>
           <p>
-            Uma selecao de interfaces digitais com foco em clareza, desempenho
-            visual e decisoes de produto mais faceis de tomar.
+            A antiga grade virou uma vitrine mais objetiva: cada projeto mostra
+            problema, tipo de entrega e impacto esperado sem sobrecarregar a tela.
           </p>
         </Header>
 
         <Grid>
-          {PROJECTS.map((project, index) => {
-            const featured = index === 0;
-
-            return (
-              <Card key={project.id} $featured={featured}>
-                <Image src={project.image} alt={project.alt} loading="lazy" />
-                <Overlay aria-hidden="true" />
-                <Content $featured={featured}>
-                  <Eyebrow>{project.eyebrow}</Eyebrow>
-                  <Body $featured={featured}>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                  </Body>
-                  <Footer>
-                    <Tags aria-label={`Tecnologias e escopo de ${project.title}`}>
-                      {project.tags.map((tag) => (
-                        <Tag key={tag}>{tag}</Tag>
-                      ))}
-                    </Tags>
-                    <Metric aria-label={`${project.metric} ${project.metricLabel}`}>
-                      <strong>{project.metric}</strong>
-                      <span>{project.metricLabel}</span>
-                    </Metric>
-                  </Footer>
-                </Content>
-              </Card>
-            );
-          })}
+          {PROJECTS.map((project) => (
+            <Card key={project.id}>
+              <ImageWrap>
+                <img src={project.image} alt={project.alt} loading="lazy" />
+                <span>{project.eyebrow}</span>
+              </ImageWrap>
+              <Content>
+                <div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+                <Tags aria-label={`Escopo de ${project.title}`}>
+                  {project.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </Tags>
+                <Metric aria-label={`${project.metric} ${project.metricLabel}`}>
+                  <strong>{project.metric}</strong>
+                  <span>{project.metricLabel}</span>
+                </Metric>
+              </Content>
+            </Card>
+          ))}
         </Grid>
-      </Container>
+      </div>
     </Section>
   );
 }
