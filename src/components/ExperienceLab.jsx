@@ -271,13 +271,11 @@ const Section = styled.section`
   }
 
   @media (max-width: 720px) {
+    padding: 88px 18px;
+
     .moment:hover {
       transform: translateY(-4px);
     }
-  }
-
-  @media (max-width: 720px) {
-    padding: 88px 18px;
 
     .poster-word {
       font-size: clamp(3.1rem, 16vw, 5.6rem);
