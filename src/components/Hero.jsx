@@ -28,11 +28,13 @@ const HeroSection = styled.section`
     grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.84fr);
     gap: 52px;
     align-items: center;
+    min-width: 0;
   }
 
   .copy {
     position: relative;
     z-index: 1;
+    min-width: 0;
   }
 
   .eyebrow {
@@ -102,6 +104,8 @@ const HeroSection = styled.section`
     font-weight: 850;
     isolation: isolate;
     overflow: hidden;
+    text-align: center;
+    white-space: normal;
     transition: transform 180ms var(--ease), box-shadow 180ms var(--ease);
   }
 
@@ -153,6 +157,7 @@ const HeroSection = styled.section`
     position: relative;
     min-height: 590px;
     transform: rotate(1deg);
+    min-width: 0;
   }
 
   .lab-card {
@@ -232,7 +237,7 @@ const HeroSection = styled.section`
 
   .journey li {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 12px;
     align-items: center;
     padding: 13px;
@@ -388,6 +393,8 @@ const HeroSection = styled.section`
   }
 
   @media (max-width: 980px) {
+    padding-top: 56px;
+
     .hero-inner {
       grid-template-columns: 1fr;
       gap: 36px;
@@ -395,8 +402,41 @@ const HeroSection = styled.section`
 
     .lab {
       min-height: 540px;
+      width: 100%;
       max-width: 620px;
+      margin: 0 auto;
       transform: none;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .eyebrow {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .proof-row span {
+      max-width: 100%;
+    }
+
+    .lab {
+      min-height: 640px;
+    }
+
+    .screen {
+      inset: 0 auto auto 0;
+      width: 100%;
+      min-height: 420px;
+    }
+
+    .floating-note {
+      right: 0;
+      bottom: 104px;
+    }
+
+    .ticket {
+      left: 0;
+      bottom: 0;
     }
   }
 
@@ -404,7 +444,8 @@ const HeroSection = styled.section`
     padding: 52px 18px 30px;
 
     h1 {
-      font-size: clamp(42px, 14vw, 66px);
+      font-size: clamp(40px, 13vw, 62px);
+      line-height: 0.98;
     }
 
     .skew-word {
@@ -418,7 +459,7 @@ const HeroSection = styled.section`
     }
 
     .lab {
-      min-height: 680px;
+      min-height: 700px;
     }
 
     .screen {
@@ -431,6 +472,12 @@ const HeroSection = styled.section`
       grid-template-columns: 1fr;
     }
 
+    .score {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+    }
+
     .floating-note {
       right: 0;
       bottom: 122px;
@@ -441,6 +488,51 @@ const HeroSection = styled.section`
       left: 0;
       bottom: 0;
       width: 230px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    padding-inline: 14px;
+
+    .hero-actions {
+      gap: 10px;
+    }
+
+    .button {
+      min-height: 52px;
+      padding: 12px 16px;
+      line-height: 1.2;
+    }
+
+    .lab {
+      min-height: 720px;
+    }
+
+    .screen {
+      min-height: 460px;
+      padding: 14px;
+      border-radius: 22px;
+    }
+
+    .journey li {
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .journey i {
+      display: none;
+    }
+
+    .floating-note {
+      bottom: 128px;
+      width: 168px;
+      padding: 14px;
+    }
+
+    .ticket {
+      width: min(100%, 230px);
+      padding: 14px;
     }
   }
 
