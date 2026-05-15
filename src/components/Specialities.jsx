@@ -44,6 +44,7 @@ const Section = styled.section`
     grid-template-columns: minmax(260px, 0.46fr) minmax(0, 1fr);
     gap: 44px;
     align-items: start;
+    min-width: 0;
   }
 
   .sticky-copy {
@@ -103,6 +104,21 @@ const Section = styled.section`
       position: static;
     }
   }
+
+  @media (max-width: 560px) {
+    padding: 78px 18px;
+
+    .signal-stack span,
+    .signal-stack span:nth-child(2),
+    .signal-stack span:nth-child(3) {
+      max-width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 420px) {
+    padding-inline: 14px;
+  }
 `;
 
 const Grid = styled.div`
@@ -127,6 +143,7 @@ const Card = styled.article`
   isolation: isolate;
   transform: translateX(${({ $offset }) => $offset});
   transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+  min-width: 0;
 
   &::before {
     content: attr(data-cue);
@@ -184,6 +201,11 @@ const Card = styled.article`
   @media (max-width: 560px) {
     grid-template-columns: 1fr;
     padding: 24px;
+    border-radius: 24px;
+  }
+
+  @media (max-width: 420px) {
+    padding: 20px;
   }
 `;
 
