@@ -30,6 +30,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 104px;
   background: var(--bg);
 }
 
@@ -124,6 +125,7 @@ p {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
+  min-width: 0;
 }
 
 :focus {
@@ -141,12 +143,22 @@ p {
 }
 
 @media (max-width: 760px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+
   .page-main {
     padding-top: 76px;
   }
 
   .section-shell {
     padding: 72px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  body {
+    min-width: 0;
   }
 }
 
