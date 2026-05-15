@@ -271,6 +271,12 @@ const Section = styled.section`
   }
 
   @media (max-width: 720px) {
+    .moment:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (max-width: 720px) {
     padding: 88px 18px;
 
     .poster-word {
