@@ -1,0 +1,46 @@
+<svg width="1280" height="900" viewBox="0 0 1280 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="900" fill="#F3FBF8"/>
+  <rect x="96" y="92" width="1088" height="716" rx="52" fill="#FFFFFF" stroke="#DCE6F2" stroke-width="2"/>
+  <rect x="138" y="136" width="1004" height="86" rx="28" fill="#172033"/>
+  <circle cx="186" cy="179" r="16" fill="#14B8A6"/>
+  <rect x="222" y="168" width="170" height="18" rx="9" fill="#FFFFFF"/>
+  <rect x="886" y="162" width="214" height="34" rx="17" fill="#2563EB"/>
+  <text x="918" y="185" fill="#FFFFFF" font-family="Inter, Arial" font-size="16" font-weight="850">Operação em tempo real</text>
+  <rect x="138" y="260" width="302" height="466" rx="30" fill="#F8FBFF" stroke="#DCE6F2" stroke-width="2"/>
+  <rect x="478" y="260" width="302" height="466" rx="30" fill="#F8FBFF" stroke="#DCE6F2" stroke-width="2"/>
+  <rect x="818" y="260" width="324" height="466" rx="30" fill="#172033"/>
+  <text x="178" y="314" fill="#172033" font-family="Inter, Arial" font-size="28" font-weight="900">Backlog</text>
+  <text x="518" y="314" fill="#172033" font-family="Inter, Arial" font-size="28" font-weight="900">Em execução</text>
+  <text x="858" y="314" fill="#FFFFFF" font-family="Inter, Arial" font-size="28" font-weight="900">Prioridade</text>
+  <rect x="178" y="354" width="222" height="88" rx="22" fill="#FFFFFF" stroke="#DCE6F2" stroke-width="2"/>
+  <rect x="178" y="466" width="222" height="88" rx="22" fill="#FFFFFF" stroke="#DCE6F2" stroke-width="2"/>
+  <rect x="178" y="578" width="222" height="88" rx="22" fill="#FFFFFF" stroke="#DCE6F2" stroke-width="2"/>
+  <rect x="518" y="354" width="222" height="118" rx="24" fill="#FFFFFF" stroke="#B7EFE7" stroke-width="2"/>
+  <rect x="518" y="500" width="222" height="118" rx="24" fill="#FFFFFF" stroke="#DCE6F2" stroke-width="2"/>
+  <rect x="212" y="384" width="116" height="14" rx="7" fill="#172033"/>
+  <rect x="212" y="414" width="148" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="212" y="496" width="144" height="14" rx="7" fill="#172033"/>
+  <rect x="212" y="526" width="120" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="212" y="608" width="136" height="14" rx="7" fill="#172033"/>
+  <rect x="212" y="638" width="150" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="552" y="386" width="136" height="16" rx="8" fill="#172033"/>
+  <rect x="552" y="420" width="150" height="12" rx="6" fill="#94A3B8"/>
+  <rect x="552" y="532" width="112" height="16" rx="8" fill="#172033"/>
+  <rect x="552" y="566" width="150" height="12" rx="6" fill="#94A3B8"/>
+  <rect x="858" y="358" width="244" height="86" rx="24" fill="#24324A"/>
+  <rect x="858" y="474" width="244" height="86" rx="24" fill="#24324A"/>
+  <rect x="858" y="590" width="244" height="86" rx="24" fill="#24324A"/>
+  <circle cx="902" cy="401" r="18" fill="#14B8A6"/>
+  <circle cx="902" cy="517" r="18" fill="#2563EB"/>
+  <circle cx="902" cy="633" r="18" fill="#F59E0B"/>
+  <rect x="936" y="386" width="116" height="14" rx="7" fill="#FFFFFF"/>
+  <rect x="936" y="416" width="132" height="10" rx="5" fill="#93A4BA"/>
+  <rect x="936" y="502" width="124" height="14" rx="7" fill="#FFFFFF"/>
+  <rect x="936" y="532" width="108" height="10" rx="5" fill="#93A4BA"/>
+  <rect x="936" y="618" width="118" height="14" rx="7" fill="#FFFFFF"/>
+  <rect x="936" y="648" width="140" height="10" rx="5" fill="#93A4BA"/>
+  <path d="M392 398C436 398 458 398 502 398" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14"/>
+  <path d="M732 414C772 414 794 414 834 414" stroke="#14B8A6" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14"/>
+  <rect x="456" y="720" width="368" height="64" rx="32" fill="#2563EB"/>
+  <text x="532" y="760" fill="#FFFFFF" font-family="Inter, Arial" font-size="22" font-weight="900">3x mais clareza na rotina</text>
+</svg>
