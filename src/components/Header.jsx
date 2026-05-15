@@ -38,7 +38,7 @@ const StyledHeader = styled.header`
   }
 
   .logo-link img {
-    width: 168px;
+    width: 184px;
     height: auto;
   }
 
@@ -109,7 +109,7 @@ const StyledHeader = styled.header`
     }
 
     .logo-link img {
-      width: 150px;
+      width: 164px;
     }
 
     .navigation {
