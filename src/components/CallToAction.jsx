@@ -182,6 +182,12 @@ const Section = styled.section`
       border-radius: 28px;
     }
 
+    .cta-panel::after {
+      right: -18px;
+      bottom: -12px;
+      font-size: clamp(4rem, 19vw, 6rem);
+    }
+
     .cta-panel::before {
       inset: 14px;
       border-radius: 20px;
