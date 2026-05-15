@@ -29,12 +29,14 @@ const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     gap: 28px;
+    min-width: 0;
   }
 
   .logo-link {
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
+    min-width: 0;
   }
 
   .logo-link img {
@@ -106,6 +108,7 @@ const StyledHeader = styled.header`
 
     .header-inner {
       padding: 0 18px;
+      gap: 14px;
     }
 
     .logo-link img {
@@ -158,6 +161,26 @@ const StyledHeader = styled.header`
     .mobile-panel .start-button {
       justify-content: center;
       margin: 8px 0 0;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .header-inner {
+      padding: 0 14px;
+    }
+
+    .logo-link img {
+      width: 142px;
+    }
+
+    .menu-button {
+      width: 42px;
+      height: 42px;
+    }
+
+    .mobile-panel {
+      left: 12px;
+      right: 12px;
     }
   }
 `;
