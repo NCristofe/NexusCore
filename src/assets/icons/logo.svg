@@ -1,16 +1,36 @@
-<svg width="240" height="60" viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  
-  <!-- Ícone -->
-  <g>
-    <rect x="0" y="10" width="40" height="40" rx="10" fill="#2563EB"></rect>
-    
-    <!-- N estilizado -->
-    <path d="M10 38V22L30 38V22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+<svg width="246" height="64" viewBox="0 0 246 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>NexusCore</title>
+  <defs>
+    <linearGradient id="nexus-core-mark" x1="7" y1="8" x2="58" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="0.48" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#172033"/>
+    </linearGradient>
+    <linearGradient id="nexus-core-word" x1="78" y1="18" x2="224" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172033"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="mark-shadow" x="0" y="0" width="70" height="70" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#2563EB" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#mark-shadow)">
+    <path d="M32 4L56.2492 18V46L32 60L7.75078 46V18L32 4Z" fill="url(#nexus-core-mark)"/>
+    <path d="M32 12.8L48.6282 22.4V41.6L32 51.2L15.3718 41.6V22.4L32 12.8Z" fill="white" fill-opacity="0.14"/>
+    <path d="M19.75 42.5V21.5L44.25 42.5V21.5" stroke="white" stroke-width="4.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14.5 19.3C22.6 8.7 40.4 8.2 49.8 18.4" stroke="white" stroke-opacity="0.52" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="50.25" cy="18.4" r="3.25" fill="#14B8A6" stroke="white" stroke-width="1.6"/>
   </g>
 
-  <!-- Texto -->
-  <text x="55" y="38" fill="#172033" font-family="Inter, sans-serif" font-size="20" font-weight="700">
-    NexusCore
-  </text>
-
+  <g>
+    <text x="78" y="38" fill="url(#nexus-core-word)" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="850" letter-spacing="-0.6">
+      NexusCore
+    </text>
+    <text x="80" y="52" fill="#718096" font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="800" letter-spacing="2.1">
+      EXPERIENCE STUDIO
+    </text>
+    <path d="M218 23H235" stroke="#14B8A6" stroke-width="3" stroke-linecap="round"/>
+    <path d="M225 30H239" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+  </g>
 </svg>
