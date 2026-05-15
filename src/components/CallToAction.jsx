@@ -23,6 +23,7 @@ const Section = styled.section`
     box-shadow: 0 34px 90px rgba(23, 32, 51, 0.24);
     overflow: hidden;
     isolation: isolate;
+    min-width: 0;
   }
 
   .cta-panel::before {
@@ -92,6 +93,9 @@ const Section = styled.section`
     font-weight: 950;
     box-shadow: 12px 12px 0 rgba(20, 184, 166, 0.34);
     transition: transform 180ms var(--ease), box-shadow 180ms var(--ease);
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
   }
 
   .cta-button:hover {
@@ -108,6 +112,7 @@ const Section = styled.section`
   .mini-board {
     display: grid;
     gap: 12px;
+    min-width: 0;
   }
 
   .mini-card {
@@ -157,12 +162,44 @@ const Section = styled.section`
 
     .cta-button {
       width: 100%;
+      min-height: auto;
+      padding: 16px 18px;
     }
 
     .mini-card,
     .mini-card:nth-child(2),
     .mini-card:nth-child(3) {
       transform: none;
+    }
+  }
+
+  @media (max-width: 520px) {
+    padding: 72px 14px 84px;
+
+    .cta-panel {
+      min-height: auto;
+      padding: 26px 20px;
+      border-radius: 28px;
+    }
+
+    .cta-panel::before {
+      inset: 14px;
+      border-radius: 20px;
+    }
+
+    h2 {
+      font-size: clamp(2.35rem, 12vw, 3.6rem);
+      line-height: 0.98;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .mini-card,
+    .mini-card:nth-child(2),
+    .mini-card:nth-child(3) {
+      animation: none;
     }
   }
 
