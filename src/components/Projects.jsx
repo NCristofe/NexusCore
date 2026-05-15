@@ -1,43 +1,47 @@
 import styled from "styled-components";
-import firstProjectImage from "../assets/img/first-project-image.png";
-import secondProjectImage from "../assets/img/second-project-image.png";
+import financeCommandImage from "../assets/img/project-finance-command.svg";
+import commerceMobileImage from "../assets/img/project-commerce-mobile.svg";
+import opsControlImage from "../assets/img/project-ops-control.svg";
 
 const PROJECTS = [
   {
     id: "finance-platform",
-    image: firstProjectImage,
-    alt: "Dashboard de uma plataforma financeira corporativa",
-    eyebrow: "SaaS financeiro",
-    title: "Financial Platform",
+    image: financeCommandImage,
+    alt: "Mockup de dashboard financeiro com gráficos, métricas e navegação lateral",
+    eyebrow: "Fintech SaaS",
+    title: "Aurora Finance",
     description:
-      "Uma interface de dados que deixa o decisor confortável: menos tabela crua, mais leitura visual e prioridade clara.",
-    tags: ["Dashboard", "UX Writing", "Design System"],
+      "Redesign de um painel financeiro B2B para transformar relatórios densos em uma visão executiva de receita, risco e saúde de contas.",
+    tags: ["Dashboard UX", "Data Viz", "Design System"],
+    scope: "Pesquisa, arquitetura da informação e UI de alta fidelidade",
     metric: "38%",
-    metricLabel: "menos tempo em tarefas recorrentes",
+    metricLabel: "menos tempo para encontrar indicadores críticos",
   },
   {
     id: "commerce-app",
-    image: secondProjectImage,
-    alt: "Interface mobile de um aplicativo de comércio digital",
-    eyebrow: "Produto mobile",
-    title: "Commerce App",
+    image: commerceMobileImage,
+    alt: "Mockup de aplicativo mobile de comércio com vitrine, produtos e botão de checkout",
+    eyebrow: "Mobile commerce",
+    title: "Luma Store",
     description:
-      "Uma vitrine mobile com fluxo de compra mais gostoso de seguir, removendo atritos antes do checkout.",
-    tags: ["Mobile", "Checkout", "Conversão"],
+      "Experiência mobile para uma loja digital com vitrine mais editorial, cards de produto claros e checkout reduzido a três etapas.",
+    tags: ["Mobile UI", "Checkout", "Conversão"],
+    scope: "Fluxo de compra, interface mobile e microcopy",
     metric: "24%",
-    metricLabel: "aumento estimado na conversão",
+    metricLabel: "aumento projetado na conversão do checkout",
   },
   {
     id: "ops-suite",
-    image: firstProjectImage,
-    alt: "Visão de cards e indicadores de uma suíte operacional",
+    image: opsControlImage,
+    alt: "Mockup de central operacional com colunas, prioridades e cards de tarefas",
     eyebrow: "Operações B2B",
-    title: "Operations Suite",
+    title: "PulseOps",
     description:
-      "Uma central operacional com foco em ritmo: status, prioridade e próximos passos sem caçar informação.",
-    tags: ["Web App", "Workflow", "Data Viz"],
+      "Central operacional para times de suporte acompanharem backlog, tarefas em andamento e prioridades sem depender de planilhas paralelas.",
+    tags: ["Web App", "Workflow", "Ops"],
+    scope: "Produto web, sistema de status e hierarquia de tarefas",
     metric: "3x",
-    metricLabel: "mais clareza na priorização",
+    metricLabel: "mais clareza para priorizar demandas do dia",
   },
 ];
 
@@ -104,6 +108,17 @@ const Card = styled.article`
   background: rgba(255, 255, 255, 0.88);
   box-shadow: var(--shadow-sm);
   transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    z-index: -1;
+    border: 1px solid rgba(37, 99, 235, 0.08);
+    border-radius: 24px;
+    pointer-events: none;
+  }
 
   &:hover {
     transform: translateY(-8px);
@@ -136,19 +151,22 @@ const ImageWrap = styled.div`
   position: relative;
   min-height: 420px;
   overflow: hidden;
-  background: #dbeafe;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(20, 184, 166, 0.2), transparent 28%),
+    linear-gradient(135deg, #eff6ff, #ffffff);
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transform: scale(1.04);
+    object-fit: contain;
+    padding: clamp(18px, 3vw, 34px);
+    transform: scale(1);
     transition: transform 320ms var(--ease), filter 320ms var(--ease);
     filter: saturate(0.92) contrast(0.96);
   }
 
   ${Card}:hover & img {
-    transform: scale(1.1) rotate(1deg);
+    transform: scale(1.04) rotate(1deg);
     filter: saturate(1.08) contrast(1);
   }
 
@@ -163,6 +181,21 @@ const ImageWrap = styled.div`
     box-shadow: 0 12px 24px rgba(23, 32, 51, 0.1);
     font-size: 0.78rem;
     font-weight: 900;
+  }
+
+  .project-type {
+    position: absolute;
+    right: 22px;
+    bottom: 22px;
+    max-width: 220px;
+    padding: 12px 14px;
+    border: 1px solid rgba(220, 230, 242, 0.9);
+    border-radius: 18px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 14px 30px rgba(23, 32, 51, 0.1);
+    font-size: 0.82rem;
+    font-weight: 850;
   }
 
   .scanline {
@@ -203,6 +236,15 @@ const Content = styled.div`
     line-height: 1.74;
     font-size: 1.02rem;
   }
+`;
+
+const Scope = styled.span`
+  display: block;
+  max-width: 600px;
+  margin-top: 16px;
+  color: var(--primary-dark);
+  font-size: 0.88rem;
+  font-weight: 850;
 `;
 
 const Tags = styled.ul`
@@ -289,12 +331,12 @@ export default function Projects() {
       <div className="section-container">
         <Header>
           <div>
-            <h4>Vitrine viva</h4>
-            <h2 id="projects-heading">Projetos que parecem convite, não relatório.</h2>
+            <h4>Cases selecionados</h4>
+            <h2 id="projects-heading">Projetos com cara de produto real, não vitrine genérica.</h2>
           </div>
           <p>
-            A lógica é simples: mostrar contexto, sensação e resultado antes da pessoa
-            cansar de ler.
+            Cada case agora tem uma interface própria, contexto claro e resultado
+            visível para parecer portfólio de estúdio de verdade.
           </p>
         </Header>
 
@@ -304,6 +346,7 @@ export default function Projects() {
               <ImageWrap className="image-wrap">
                 <img src={project.image} alt={project.alt} loading="lazy" />
                 <span className="stamp">{project.eyebrow}</span>
+                <span className="project-type">{project.scope}</span>
                 <span className="scanline" aria-hidden="true" />
               </ImageWrap>
               <Content>
@@ -318,6 +361,7 @@ export default function Projects() {
                 <div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
+                  <Scope>{project.scope}</Scope>
                 </div>
                 <Metric aria-label={`${project.metric} ${project.metricLabel}`}>
                   <strong>{project.metric}</strong>
