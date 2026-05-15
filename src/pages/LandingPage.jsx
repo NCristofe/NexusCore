@@ -1,10 +1,10 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Specialities from "../components/Specialities";
+import Projects from "../components/Projects";
 import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 import BlobCursor from "../components/BlobCursor";
-import PixelCard from "../components/PixelCard";
 
 export default function LandingPage() {
   return (
@@ -26,29 +26,8 @@ export default function LandingPage() {
           <Specialities />
         </section>
 
-        {/* Projetos com PixelCard */}
-        <section id="projects" className="py-24">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Meus Projetos
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-            <PixelCard variant="default">
-              <div style={{ position: "absolute", color: "white", fontSize: "1.2rem" }}>
-                Projeto A
-              </div>
-            </PixelCard>
-            <PixelCard variant="blue">
-              <div style={{ position: "absolute", color: "white", fontSize: "1.2rem" }}>
-                Projeto B
-              </div>
-            </PixelCard>
-            <PixelCard variant="pink">
-              <div style={{ position: "absolute", color: "white", fontSize: "1.2rem" }}>
-                Projeto C
-              </div>
-            </PixelCard>
-          </div>
-        </section>
+        {/* Projetos */}
+        <Projects />
 
         {/* Call to Action */}
         <section id="cta" className="py-24">
