@@ -170,7 +170,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <div className="header-inner">
-        <a className="logo-link" href="#hero" aria-label="NexusCore - inicio" onClick={closeMenu}>
+        <a className="logo-link" href="#hero" aria-label="NexusCore - início" onClick={closeMenu}>
           <img src={logo} alt="NexusCore" />
         </a>
 

@@ -73,7 +73,7 @@ export default function Footer() {
           <span className="legal">© 2026 NexusCore. Todos os direitos reservados.</span>
         </div>
 
-        <nav className="footer-links" aria-label="Links do rodape">
+        <nav className="footer-links" aria-label="Links do rodapé">
           <a className="footer-link" href="#hero">
             Home
           </a>
