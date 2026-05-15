@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import ExperienceLab from "../components/ExperienceLab";
 import Specialities from "../components/Specialities";
 import Projects from "../components/Projects";
 import CallToAction from "../components/CallToAction";
@@ -11,6 +12,7 @@ export default function LandingPage() {
       <Header />
       <main className="page-main">
         <Hero />
+        <ExperienceLab />
         <Specialities />
         <Projects />
         <CallToAction />
