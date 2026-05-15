@@ -55,6 +55,7 @@ const Section = styled.section`
   .section-container {
     display: grid;
     gap: 42px;
+    min-width: 0;
   }
 `;
 
@@ -63,6 +64,7 @@ const Header = styled.div`
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 28px;
   align-items: end;
+  min-width: 0;
 
   h4 {
     margin-bottom: 10px;
@@ -109,6 +111,7 @@ const Card = styled.article`
   box-shadow: var(--shadow-sm);
   transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
   isolation: isolate;
+  min-width: 0;
 
   &::before {
     content: "";
@@ -144,6 +147,10 @@ const Card = styled.article`
     &:nth-child(even) .image-wrap {
       order: 0;
     }
+  }
+
+  @media (max-width: 520px) {
+    border-radius: 24px;
   }
 `;
 
@@ -206,7 +213,34 @@ const ImageWrap = styled.div`
   }
 
   @media (max-width: 900px) {
-    min-height: 300px;
+    min-height: 360px;
+  }
+
+  @media (max-width: 620px) {
+    min-height: 310px;
+
+    img {
+      padding: 18px;
+    }
+
+    .project-type {
+      display: none;
+    }
+  }
+
+  @media (max-width: 420px) {
+    min-height: 250px;
+
+    img {
+      padding: 12px;
+    }
+
+    .stamp {
+      left: 14px;
+      top: 14px;
+      max-width: calc(100% - 28px);
+      font-size: 0.72rem;
+    }
   }
 
   @keyframes scanProject {
@@ -223,6 +257,7 @@ const Content = styled.div`
   justify-content: space-between;
   gap: 28px;
   padding: clamp(26px, 4vw, 44px);
+  min-width: 0;
 
   h3 {
     max-width: 620px;
@@ -235,6 +270,24 @@ const Content = styled.div`
     max-width: 620px;
     line-height: 1.74;
     font-size: 1.02rem;
+  }
+
+  @media (max-width: 620px) {
+    padding: 24px;
+    gap: 24px;
+
+    h3 {
+      font-size: clamp(2rem, 12vw, 3.2rem);
+      line-height: 0.98;
+    }
+  }
+
+  @media (max-width: 420px) {
+    padding: 20px;
+
+    h3 {
+      font-size: clamp(1.8rem, 11vw, 2.6rem);
+    }
   }
 `;
 
@@ -283,6 +336,15 @@ const Metric = styled.div`
     line-height: 1.35;
     font-weight: 700;
   }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+
+    span {
+      max-width: none;
+    }
+  }
 `;
 
 const Action = styled.a`
@@ -293,6 +355,7 @@ const Action = styled.a`
   margin-top: 24px;
   color: var(--text);
   font-weight: 900;
+  max-width: 100%;
 
   &::after {
     content: "";
@@ -322,6 +385,12 @@ const LabNote = styled.div`
 
   strong {
     color: var(--text);
+  }
+
+  @media (max-width: 520px) {
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: left;
   }
 `;
 
